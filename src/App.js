@@ -14,7 +14,7 @@ class App extends React.Component {
     const response = await axios.get(URL);
     this.setState({range: [response.data[Object.keys(response.data).length-1].year, response.data[0].year]});
     this.setState({value: [response.data[Object.keys(response.data).length-1].year, response.data[0].year]});
-    this.setState({results: response.data});
+    this.setState({results: response.data.reverse()});
   }
 
   constructor(props) {

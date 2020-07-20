@@ -23,8 +23,8 @@ const Table = (props) => {
             temp[i]['cumul'] = temp[i].totalReturn
         }
 
-        for(let i = temp.length -2; i > -1; i--){
-            temp[i]['cumul'] = parseFloat(temp[i].cumul) + parseFloat(temp[i +1].cumul)
+        for(let i = 1; i < temp.length; i++){
+            temp[i]['cumul'] = parseFloat(temp[i].cumul) + parseFloat(temp[i - 1].cumul)
             temp[i]['cumul'] = temp[i]['cumul'].toFixed(2)
         }
         
@@ -56,7 +56,6 @@ const Table = (props) => {
     return (
         <>
             <h2>SP-500 Returns</h2>
-            {}
             <table className='table'>
                 <thead><tr>{renderHeader()}</tr></thead>
                 <tbody>{renderBody()}</tbody>
